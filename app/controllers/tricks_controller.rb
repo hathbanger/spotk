@@ -3,7 +3,7 @@ class TricksController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-		@tricks = Trick.all.order("created_at DESC")
+		@tricks = Trick.all.order(:cached_votes_up => :desc)
 	end
 	
 	def show
@@ -43,12 +43,12 @@ class TricksController < ApplicationController
 
 	def upvote
 		@trick.upvote_by current_user
-		redirect_to :back
+		redirect_to root_path
 	end
 
 	def downvote
 		@trick.downvote_by current_user
-		redirect_to :back
+		redirect_to root_path
 	end
 
 	private
