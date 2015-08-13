@@ -1,0 +1,26 @@
+ 
+ <div class="navbar">
+ 
+          <!-- Navbar inner for Index page-->
+          <div data-page="index" class="navbar-inner">
+          <div class="left">
+            <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+            
+          </div>
+            <!-- We have home navbar without left link-->
+            <div class="center sliding">Spotking</div>
+            <div class="right">
+            <div class="right">
+            <%= link_to "Sign-in", new_user_session_path %>
+            </div>
+
+            <%= link_to "Sign-out", destroy_user_session_path, :method => :delete, class: 'fa fa-sign-out fa-2x' %>
+            </div>
+              </a>
+            </div>
+          </div>
+
+
+        </div>
+
+
