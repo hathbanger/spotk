@@ -1,0 +1,6 @@
+<%= simple_form_for([@trick, @trick.comments.build]) do |f| %>
+  <p>  
+    <%= f.input :content, label: "Reply to trick" %> 
+  </p>  
+  <p><%= f.submit %></p>  
+<% end %> 

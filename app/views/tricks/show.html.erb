@@ -1,0 +1,37 @@
+<%= image_tag @trick.image.url(:medium) %>
+<%= @trick.title %> -
+<%= @trick.user.name %>
+<br/>
+<%= @trick.get_upvotes.size %>
+<%= link_to("like", like_trick_path(@trick) , method: :get) %>
+<br/>
+<%= @trick.get_downvotes.size %>
+<%= link_to("dislike", dislike_trick_path(@trick) , method: :get) %>
+
+
+<br/>
+<%= pluralize(@trick.comments.count, "Comment") %>
+</h2>
+<% @comments.each do |comment| %>
+<div class="comment">
+  <p class="username">
+    <%= comment.user.name %>
+  </p>
+  <p class="content">
+    <%= comment.content %>
+  </p>
+</div>
+<% end %>
+
+<%= render 'comments/form' %>
+<br/>
+
+
+
+  <tr>
+    <td><%= link_to "Edit", edit_trick_path(@trick) %></td>
+    <td><%= link_to "Remove", @trick, method: :delete, data: { confirm: "Are you sure?" } %></td>
+  </tr>
+  <br/>
+<%= link_to("Back", root_path) %>
+<%= link_to("New Trick", new_trick_path) %>

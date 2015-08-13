@@ -1,0 +1,27 @@
+<% @tricks.each do |trick| %>
+<%= link_to(image_tag trick.image.url(:thumb)) %>
+  <br/>
+  <tr>
+    <td><%= link_to trick.title, trick %></td>
+  </tr>
+   <br/>
+  <tr>
+    <td><%= link_to trick.user.name, trick %></td>
+  </tr>
+  <br/>
+<%= trick.get_upvotes.size %>
+<%= link_to("like", trick , method: :get) %>
+<br/>
+<%= trick.get_downvotes.size %>
+<%= link_to("dislike", trick , method: :get) %>
+
+  <br/>
+  <tr>
+    <td><%= link_to trick.comments.count, trick %> Comments</td>
+  </tr>
+  <br/>
+    <br/>
+<% end %>
+</table>
+  <br/>
+<%= link_to("New Trick", new_trick_path) %>
